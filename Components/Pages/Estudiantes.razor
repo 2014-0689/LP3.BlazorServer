@@ -1,0 +1,46 @@
+@page "/estudiantes"
+    @rendermode InteractiveServer
+@using LP3.BlazorServer.Shared.DTOs
+@using LP3.BlazorServer.Application.Services
+@using LP3.BlazorServer.Domain.Enums
+
+@inject IEstudianteService EstudianteService
+
+<div class="container mt-5">
+    <h1>📚 Gestión de Estudiantes</h1>
+    <p class="text-muted">Aquí puedes crear, consultar, editar y eliminar estudiantes</p>
+    
+    <!-- Aquí irán las secciones de búsqueda, registro, edición y eliminación -->
+
+</div>
+
+@code {
+    // Variables para almacenar datos
+    private ICollection<EstudianteDto> estudiantes = [];
+    private string mensajeRegistro = string.Empty;
+
+    // Variables para búsqueda
+    private string matriculaBusqueda = string.Empty;
+    private EstudianteDto? estudianteBuscado;
+
+    // Variables para nuevo registro
+    private EstudianteDto nuevoEstudiante = new();
+
+    // Variables para edición
+    private EstudianteDto? editandoEstudiante;
+    private int idEstudianteEditando = 0;
+
+    // Variables para eliminación
+    private bool mostrarConfirmacionEliminar = false;
+    private int idEstudianteAEliminar = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarEstudiantes();
+    }
+
+    private async Task CargarEstudiantes()
+    {
+        estudiantes = await EstudianteService.GetAll();
+    }
+}
