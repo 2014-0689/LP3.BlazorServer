@@ -9,11 +9,11 @@ main {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, #d8d7bf 0%, #C71585 70%); /* Morado clarito → cuerpo, rosado oscuro → botones */
 }
 
 .top-row {
-    background-color: #f7f7f7;
+    background-color: #d8bfd0; /* Morado clarito */
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
@@ -25,9 +25,14 @@ main {
         white-space: nowrap;
         margin-left: 1.5rem;
         text-decoration: none;
+        background-color: #C71585; /* Rosado oscuro para botones */
+        color: rgb(255, 255, 255);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
     }
 
     .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
+        background-color: #8B004B; /* Rosado más intenso al pasar el mouse */
         text-decoration: underline;
     }
 
